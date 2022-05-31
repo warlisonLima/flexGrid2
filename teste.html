@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+    :root {
+        --cor0: #c5ebd6;
+        --cor1: #83e1ad;
+        --cor2: #3ddc84;
+        --cor3: #2fa866;
+        --cor4: #1a5c37;
+        --cor5: #063d1e;
+        --cor6: #ffffff;
+        --cor7: #F22727;
+        --cor8: black;
+        --cor9: #F2E205;
+        --cor11: #05F240;
+        --cor12: #2E83F2;
+        --cor13: #1D64F2;
+        --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+        --fonte-destaque: 'Titillium', 'cursive';
+        --fonte-android: 'Android', 'cursive';
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        text-align: justify;
+        font-size: 2em;
+    }
+
+
+    /* CONFIGURANDO GRID LAYTE*/
+    /*parte 1*/
+    .pagina {
+        display: grid;
+        grid-template-areas:
+            "cabecalho"
+            "menuPrincipal"
+            "conteudo"
+            "conteudoExtra"
+            "rodape";
+
+    }
+
+
+    /*parte 2*/
+    .cabecalho {
+        grid-area: cabecalho;
+        background-color: var(--cor5);
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        text-align: center;
+    }
+
+    .titulo {
+        background-color: var(--cor5);
+        color: white;
+    }
+
+    /* trabalhando o MENU */
+    /*parte 3*/
+    .menuPrincipal {
+        grid-area: menuPrincipal;
+        background-color: var(--cor11);
+    }
+    .itensMenu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+
+    /*parte 4*/
+    .conteudo {
+        grid-area: conteudo;
+        background-color: var(--cor2);
+    }
+
+    /*parte 5*/
+    .conteudoExtra {
+        grid-area: conteudoExtra;
+        background-color: var(--cor3);
+    }
+
+    /*parte 6*/
+    .rodape {
+        grid-area: rodape;
+        background-color: var(--cor4);
+    }
+    /* telas NORMAIS */
+    @media screen and (min-width:480px) {
+        body {
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+
+        /* CONFIGURANDO GRID LAYTE*/
+
+        .pagina {
+            grid-template-areas:
+                "cabecalho cabecalho"
+                "menuPrincipal menuPrincipal"
+                "conteudo conteudoExtra"
+                "rodape rodape";
+                column-gap: 2px;
+                row-gap: 2px;
+                grid-template-columns: 2fr 1fr;
+        }
+        .cabecalho {
+            flex-direction: row;
+        }
+        .titulo {
+            width: 100%;
+        }
+
+    }
+    @media screen and (min-width:1280px) {
+        body {
+            text-align: center;
+            font-size: 2em;
+        }
+
+
+        /* CONFIGURANDO GRID LAYTE*/
+
+        .pagina {
+            grid-template-areas:
+                "cabecalho cabecalho cabecalho"
+                "menuPrincipal conteudo conteudoExtra"
+                "rodape rodape rodape";
+                column-gap: 4px;
+                row-gap: 4px;
+                grid-template-columns: 1fr 4fr 2fr;
+        }
+        .itensMenu {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .titulo {
+            width: 100%;
+        }
+
+    }
+    
+</style>
+
+<body>
+    
+    <!--parte 1-->
+    <main class="pagina">
+
+        
+        <!--parte 2-->
+        <header class="cabecalho">
+            <img src="imagens/bugdroid.png" alt="">
+            <h1 class="titulo">2 Título</h1>
+           
+            
+
+        </header>
+
+        <!--parte 3-->
+        <nav class="menuPrincipal">
+            <ul class="itensMenu">
+                <li><a href="">Opção 1</a></li>
+                <li><a href="">Opção 1</a></li>
+                <li><a href="">Opção 1</a></li>
+                <li><a href="">Opção 1</a></li>
+            </ul>
+        </nav>
+
+        <!--parte 4-->
+        <article class="conteudo">
+            4 conteudo da pagina (article)
+        </article>
+
+        <!--parte 5-->
+        <aside class="conteudoExtra">
+            5 conteudo associado é ASIDE
+        </aside>
+
+        <!--parte 6-->
+        <footer class="rodape">
+            6 roda pe é o FOOTER
+        </footer>
+    </main>
+
+</body>
+
+</html>

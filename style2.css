@@ -1,0 +1,389 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2? family= Titillium+Web & display=swap');
+
+@font-face {
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+    --cor6: #ffffff;
+    --cor7: #F22727;
+    --cor8: black;
+    --cor9: #F2E205;
+    --cor11: #05F240;
+    --cor12: #2E83F2;
+    --cor13: #1D64F2;
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Titillium', 'cursive';
+    --fonte-android: 'Android', 'cursive';
+}
+
+body {
+    font-size: 0.85em;
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+body p {
+    text-indent: 40px;
+    font-family: var(--fonte-padrao);
+    text-align: justify;
+    padding: 5px 0px 5px 0px;
+    line-height: 2em;
+}
+
+
+
+/* criando o o grid*/
+/* body*/
+.pagina {
+    display: grid;
+    grid-template-areas:
+        "cabecalho"
+        "navegacao-principal"
+        "conteudo"
+        "conteudoExtra"
+        "rodape";    
+}
+img {
+    display: flex;
+    margin: auto;
+    width: 100%;
+}
+/* cabecalho*/
+.cabecalho {
+    grid-area: cabecalho;
+    background-color: var(--cor4);
+    padding-top: 40px;
+}
+.cabecalho > h1 {
+    text-align: center;
+    font-family: var(--fonte-destaque);
+    color: var(--cor6);
+    padding: 7px 0px 15px 0px;
+    text-shadow: 5px 5px 5px red;
+    
+}
+.cabecalho > p {
+    text-align: center;
+    font-family: var(--fonte-destaque);
+    color: var(--cor6);
+    padding: 7px 0px 15px 0px;
+}
+/*_______INICIO_______*/
+/*[CONFIGURANDO O MENU]*/
+.menuPrincipal {
+    grid-area: navegacao-principal;
+}
+.itensMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style-type: none;
+}
+.itensMenu li {
+    background-color: var(--cor3);
+    padding: 10px 0px 10px 0px;
+    position: static;
+    text-decoration: none;
+    transition-duration: 0.5s;
+    text-align: center;
+}
+.itensMenu li a {
+    color: var(--cor6);
+    text-decoration: none;  
+}
+.dropdown {
+    visibility: hidden;
+    position: absolute;
+    transition: absolute;
+    transition: all 0.5 ease;
+    margin-top: 10px;
+    background-color: var(--cor13);
+    list-style-type: none;
+}
+.dropdown a{
+    padding: 10px 5px 10px 5px; 
+    text-decoration: none;
+}
+.itensMenu li:hover,
+.itensMenu li:focus-within,
+.itensMenu li a:hover {
+    background-color: var(--cor13);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.1s;  
+}
+.itensMenu li:hover > ul,
+.itensMenu li:focus > ul,
+.dropdown ul:hover,
+.dropdown ul:focus {
+    visibility: visible;
+    opacity: 1;
+    display: block; 
+}
+
+/*----------------------FIM----------------------*/
+/*main*/
+.conteudo {
+    grid-area: conteudo;
+    background-color: var(--cor2);
+    padding: 20px;
+}
+.conteudo strong {
+    font-weight: normal;
+    padding: 2px 6px;
+    background-color: var(--cor1);
+}
+#aprenderMais {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+#aprenderMais li{
+    padding: 10px 0px 10px 0px;
+}
+.linkgeral {
+    color: var(--cor6);
+    background-color: var(--cor8);
+    text-decoration: none;
+}
+.linkgeral::after {
+    content: '\1f517';
+}
+.linkgeral:hover {
+    background-color: var(--cor7);
+
+}
+
+
+/* [ configurando video ] */
+div.video {
+    background-color: var(--cor12);
+    margin: 20px -20px 30px -20px;
+    position: relative;
+}
+div.video iframe {
+    position: relative;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+/*aside*/
+/* [ QUER APRENDER MAIS ] */
+.conteudoExtra {
+    grid-area: conteudoExtra;
+    background-color: var(--co12);
+    box-shadow: 4px 6px 12px red;
+    padding: 10px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 10px;
+}
+.evl {
+    padding: 10px;
+    margin: 5px -10px 5px -10px;
+    background-color: var(--cor1);
+    font-size: 0.85em;
+    border-radius: 10px;
+}
+
+/* ASIDE flex box*/
+#evolucao { /* pai*/
+    display: flex;
+    flex-flow: row wrap;
+    
+}
+#evolucao h2 {
+    align-items: center;
+    text-align: center;
+    font-family: var(--fonte-android);
+    padding-top: 10px;
+    background-color:var(--cor13);
+    color: white;
+    margin: -10px -10px 5px -10px;
+    border-radius: 10px;
+    flex: 250px;
+
+}
+#evolucao h3 {
+    font-family: var(--fonte-android);
+    padding-top: 10px;
+    color: var(--cor6);
+    background-color: var(--cor5);
+    margin: -10px -10px 5px -10px;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+}
+#evolucao p {
+    text-indent: 40px;
+}
+/*foot*/
+.rodape {
+    grid-area: rodape;
+    background-color: var(--cor4);
+}
+.rodape > p {
+    color: var(--cor6);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+@media screen and (min-width:480px) {
+    body {
+        font-size: 0.95em;
+    }
+    /* CONFIGURANDO GRID LAYTE*/
+    .pagina {
+        grid-template-areas:
+            "cabecalho cabecalho"
+            "navegacao-principal navegacao-principal"
+            "conteudo conteudo"
+            "conteudoExtra conteudoExtra"
+            "rodape rodape";
+        column-gap: 2px;
+        row-gap: 2px;
+        grid-template-columns: 2fr 1fr;
+    }
+    .cabecalho {
+        flex-direction: row;
+    }
+    div.video iframe {
+        height: 400px;
+    }
+    .evl {
+        flex: 300px;
+        padding: 10px;
+        margin: 5px 2px 5px 2px;
+        background-color: var(--cor1);
+        font-size: 0.85em;
+        border-radius: 10px;
+    }
+    .conteudoExtra >h2 {
+        background-color: var(--cor7);
+        box-shadow: 4px 6px 12px rgb(212, 0, 255);
+        padding: 5px;
+        margin: -10px -10px 0px 0px;
+        border-radius: 10px;;
+        text-align: center;
+        color: var(--cor6);
+    }
+
+
+    /*_______INICIO_______*/
+/*[CONFIGURANDO O MENU]*/
+.itensMenu {
+    flex-direction: row;
+    justify-content: space-around;
+}
+.itensMenu li {
+    width: 100%;
+
+}
+
+}
+
+
+@media screen and (min-width:800px) {
+    body {
+        font-size: 1em;
+    }
+    /* CONFIGURANDO GRID LAYTE*/
+    .pagina {
+        grid-template-areas:
+            "cabecalho cabecalho"
+            "navegacao-principal navegacao-principal"
+            "conteudo conteudoExtra"
+            "rodape rodape";
+        column-gap: 4px;
+        *row-gap: 4px;
+        grid-template-columns: 4fr 2fr;
+    }
+    .itensMenu {
+        flex-direction: row;
+        text-align: center;
+    }
+    div.video iframe {
+        height: 500px;
+
+    }
+    .conteudoExtra >h2 {
+        background-color: var(--cor12);
+        box-shadow: 4px 6px 12px rgb(0, 4, 255);
+        padding: 5px;
+        margin: -10px -10px 0px 0px;
+        border-radius: 10px;;
+        text-align: center;
+        color: var(--cor6);
+    }
+    .evl {
+        flex: 700px;
+        
+    }
+    .dropdown > ul > li{
+        background-color: rgb(0, 17, 255);
+        
+    }
+    .dropdown li {
+        background-color: var(--cor7);
+      
+        margin: 1.5px;
+    }
+}
+
+
+@media screen and (min-width:1280px) {
+    body {
+        font-size: 1em;
+    }
+    /* CONFIGURANDO GRID LAYTE*/
+    .pagina {
+        grid-template-areas:
+            "cabecalho cabecalho cabecalho"
+            "navegacao-principal conteudo conteudoExtra"
+            "rodape rodape rodape";
+        column-gap: 4px;
+        *row-gap: 4px;
+        grid-template-columns: 200px 4fr 2fr;
+    }
+    .itensMenu {
+        flex-direction: column;
+        text-align: center;
+    }
+    div.video iframe {
+        height: 500px;
+    }
+    .evl {
+        flex: 700px;
+    }
+    .dropdown {
+        left: 200px;  
+    }
+    .dropdown > ul > li{
+        background-color: rgb(0, 17, 255);   
+    }
+    .dropdown li {
+        background-color: var(--cor7);
+        width: 200px;
+        margin: 1.5px;
+    }
+
+}
